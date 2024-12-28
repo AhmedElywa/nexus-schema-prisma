@@ -23,7 +23,7 @@
     "@paljs/types": "workspace:*",
     "babel-plugin-transform-async-to-promises": "^0.8.18",
     "chalk": "^4.1.2",
-    "cross-spawn": "7.0.5",
+    "cross-spawn": "7.0.6",
     "fs-extra": "^10.0.1",
     "got": "11.8.5",
     "type-fest": "^2.16.0"
