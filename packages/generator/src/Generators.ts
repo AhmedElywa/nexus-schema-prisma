@@ -232,7 +232,9 @@ export class Generators {
             .filter((field) => !this.options?.excludeInputFields?.includes(field.name))
             .forEach((field) => {
               fileContent.push(
-                `${field.name}: ${field.outputType.isList ? `[${field.outputType.type}!]` : field.outputType.type}${
+                `${field.name}${
+                  type.name.endsWith('CountOutputType') && field.args.length ? `(${this.getSDLArgs(field.args)})` : ''
+                }: ${field.outputType.isList ? `[${field.outputType.type}!]` : field.outputType.type}${
                   !field.isNullable ? '!' : ''
                 }`,
               );

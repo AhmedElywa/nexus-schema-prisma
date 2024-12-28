@@ -321,7 +321,11 @@ export class PrismaSelect<
             if (this.isAggregate) {
               selectObject[fieldName] = true;
             } else {
-              selectObject.select[fieldName] = true;
+              if (fields.name === '_count' && Object.keys(fieldsByTypeName[key].args).length) {
+                selectObject.select[fieldName] = fieldsByTypeName[key].args;
+              } else {
+                selectObject.select[fieldName] = true;
+              }
             }
           } else {
             if (this.isAggregate) {
